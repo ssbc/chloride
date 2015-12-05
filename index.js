@@ -1,7 +1,8 @@
-/**
- * Created by bmf on 11/2/13.
- */
- /* jslint node: true */
-'use strict';
 
-module.exports = require('./lib/sodium');
+try {
+  var r = require //fool browserify
+  module.exports = r('./bindings')
+} catch (err) {
+  console.error(err.message)
+  module.exports = require('./browser')
+}

@@ -1,11 +1,12 @@
 {
-  "name": "sodium",
+  "name": "chloride",
   "version": "1.0.22",
-  "author": "Pedro Paixao <paixaop@gmail.com>",
+  "author": "Dominic Tarr",
   "license": "MIT",
-  "description": "Lib Sodium port for node.js",
+  "description": "node.js sodium bindings + pure js polyfil",
   "dependencies": {
-    "nan": "^2.0.9"
+    "chloridedown": "^1.0.22",
+    "sodium-browserify": "^1.0.3"
   },
   "devDependencies": {
     "istanbul": ">=0.2.6",
@@ -13,11 +14,6 @@
     "mocha-istanbul": ">=0.2.0",
     "node-gyp": ">=1.0.2",
     "should": ">=2.1.0"
-  },
-  "scripts": {
-    "test": "make test",
-    "preinstall": "make",
-    "install": "node-gyp rebuild"
   },
   "repository": {
     "type": "git",
