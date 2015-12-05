@@ -5,8 +5,10 @@
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
   "dependencies": {
-    "chloridedown": "^1.0.22",
     "sodium-browserify": "^1.0.3"
+  },
+  "optionalDependencies": {
+    "chloridedown": "^1.0.22"
   },
   "devDependencies": {
     "istanbul": ">=0.2.6",
