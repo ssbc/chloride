@@ -6,6 +6,7 @@ try {
   var r = require //fool browserify
   module.exports = r('./bindings')
 } catch (err) {
-  console.error(err.message)
+  console.error('error loading sodium bindings:', err.message)
+  console.error('falling back to javascript version.')
   module.exports = require('./browser')
 }
