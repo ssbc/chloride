@@ -1,6 +1,6 @@
 {
   "name": "chloride",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Dominic Tarr",
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
