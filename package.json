@@ -1,0 +1,19 @@
+{
+  "name": "chloride-test",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/chloride-test",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/chloride-test.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chloridedown": "^1.0.22"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
