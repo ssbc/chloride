@@ -1,2 +1,2 @@
 
-module.exports = require('sodium-browserify/browser')
+module.exports = require('sodium-browserify')
