@@ -11,16 +11,9 @@
   "optionalDependencies": {
     "chloridedown": "^1.0.22"
   },
-  "devDependencies": {
-    "istanbul": ">=0.2.6",
-    "mocha": ">=0.14.1",
-    "mocha-istanbul": ">=0.2.0",
-    "node-gyp": ">=1.0.2",
-    "should": ">=2.1.0"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/paixaop/node-sodium"
+    "url": "https://github.com/dominictarr/chloride"
   },
   "keywords": [
     "encryption",
@@ -39,3 +32,5 @@
     }
   ]
 }
+
+
