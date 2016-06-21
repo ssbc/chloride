@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git://github.com/dominictarr/chloride-test.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "json-buffer": "^2.0.11"
+  },
   "devDependencies": {
     "chloridedown": "^1.0.22"
   },
