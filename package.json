@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/dominictarr/chloride"
   },
+  "browser": {
+    "electron": false
+  },
   "keywords": [
     "encryption",
     "ed25519",
