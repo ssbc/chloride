@@ -17,6 +17,15 @@ module.exports = function (sodium) {
   sodium.randombytes(b2)
   assert.notDeepEqual(b, b2)
 
+  var keys = sodium.crypto_sign_keypair()
+  assert.ok(Buffer.isBuffer(keys.publicKey))
+  assert.ok(Buffer.isBuffer(keys.secretKey))
+
+  var keys2 = sodium.crypto_box_keypair()
+  assert.ok(Buffer.isBuffer(keys2.publicKey))
+  assert.ok(Buffer.isBuffer(keys2.secretKey))
+
+
   //now test the rest of the interface...
 
   var isArray = Array.isArray
@@ -50,4 +59,6 @@ module.exports = function (sodium) {
   })
   return {total: total, fail: fails, pass: total - fails}
 }
+
+
 
