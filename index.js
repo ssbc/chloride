@@ -1,6 +1,6 @@
 
 if(process.env.CHLORIDE_JS)
-  return module.exports = require('./browser')
+  return module.exports = require('./browser-small')
 
 function isElectron () {
   try {
