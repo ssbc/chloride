@@ -4,6 +4,20 @@ var JSONB = require('json-buffer')
 var tests = JSONB.parse(require('./data.json'))
 
 module.exports = function (sodium) {
+  //test random bytes
+
+  assert.throws(function () {
+    cl.randombytes(32)
+  })
+
+  var b = new Buffer(32)
+  assert.equal(sodium.randombytes(b), null)
+
+  var b2 = new Buffer(b)
+  sodium.randombytes(b2)
+  assert.notDeepEqual(b, b2)
+
+  //now test the rest of the interface...
 
   var isArray = Array.isArray
 
@@ -12,9 +26,12 @@ module.exports = function (sodium) {
     var fn = name === 'deepEqual' ? assert.deepEqual : sodium['crypto_'+name]
     if(!fn) throw new Error('method: crypto_'+name+' does not exist')
 
-    return fn.apply(null, ary.slice(1).map(function (e) {
+    console.log(ary.slice(1))
+    var ret = fn.apply(null, ary.slice(1).map(function (e) {
       return isArray(e) ? apply(e) : e
     }))
+    console.log(ret)
+    return ret
   }
 
 
@@ -33,6 +50,4 @@ module.exports = function (sodium) {
   })
   return {total: total, fail: fails, pass: total - fails}
 }
-
-
 
