@@ -9,7 +9,7 @@
     "sodium-browserify-tweetnacl": "^0.2.0"
   },
   "optionalDependencies": {
-    "chloridedown": "^1.0.22"
+    "sodium-prebuilt": "^1.0.22"
   },
   "repository": {
     "type": "git",
@@ -35,3 +35,5 @@
     }
   ]
 }
+
+
