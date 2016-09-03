@@ -1,13 +1,7 @@
+var isElectron = require('is-electron')
 
 if(process.env.CHLORIDE_JS)
   return module.exports = require('./browser-small')
-
-function isElectron () {
-  try {
-    require('electron')
-    return true
-  } catch (_) { return false }
-}
 
 try {
   var cl = module.exports = require('./bindings')
@@ -39,4 +33,5 @@ try {
   console.error('falling back to javascript version.')
   module.exports = require('./browser-small')
 }
+
 
