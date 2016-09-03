@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
   "dependencies": {
+    "is-electron": "^2.0.0",
     "sodium-browserify": "^1.0.3",
     "sodium-browserify-tweetnacl": "^0.2.0"
   },
@@ -14,9 +15,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dominictarr/chloride"
-  },
-  "browser": {
-    "electron": false
   },
   "keywords": [
     "encryption",
@@ -35,3 +33,4 @@
     }
   ]
 }
+
