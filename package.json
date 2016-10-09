@@ -10,7 +10,7 @@
     "sodium-browserify-tweetnacl": "^0.2.0"
   },
   "optionalDependencies": {
-    "sodium-prebuilt": "^1.0.22"
+    "sodium-prebuilt": "1.0.22"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,12 @@
       "type": "MIT",
       "url": "http://opensource.org/licenses/mit-license.php"
     }
-  ]
+  ],
+  "devDependencies": {
+    "chloride-test": "^1.1.1"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
 }
+
