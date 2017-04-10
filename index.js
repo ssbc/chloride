@@ -7,7 +7,7 @@ module.exports = function (sodium) {
   //test random bytes
 
   assert.throws(function () {
-    cl.randombytes(32)
+    sodium.randombytes(32)
   })
 
   var b = new Buffer(32)
