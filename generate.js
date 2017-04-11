@@ -1,18 +1,9 @@
 
 var sodium = require('chloridedown/build/Release/sodium')
-var crypto = require('crypto')
-var seed = sodium.crypto_hash_sha256(new Buffer('deterministic tests are good'))
+var assert = require('assert')
 var JSONB = require('json-buffer')
 
 var isArray = Array.isArray
-
-function parse (ary) {
-  return ary.map(function (e, i) {
-    if(i) return new Buffer(e, 'base64')
-    if(Array.isArray(e)) return parse(e)
-    else return e
-  })
-}
 
 function apply (ary) {
   var name = ary[0]
@@ -70,18 +61,6 @@ var msgs = [
 + 'has come primarily from the amateurs.'
 // - Witfield Diffie, New Directions in Cryptography
 ].map(function (e) { return new Buffer(e) })
-
-var funs = [
-"crypto_auth","crypto_auth_verify","crypto_box_beforenm","crypto_box_detached","crypto_box_easy","crypto_box_easy_afternm",
-"crypto_box_keypair","crypto_box_open_detached","crypto_box_open_easy","crypto_box_open_easy_afternm","crypto_box_seal",
-"crypto_box_seal_open","crypto_box_seed_keypair","crypto_generichash","crypto_generichash_final","crypto_generichash_init",
-"crypto_generichash_update","crypto_hash","crypto_onetimeauth","crypto_onetimeauth_final","crypto_onetimeauth_init",
-"crypto_onetimeauth_update","crypto_onetimeauth_verify","crypto_pwhash_scryptsalsa208sha256","crypto_pwhash_scryptsalsa208sha256_ll",
-"crypto_pwhash_scryptsalsa208sha256_str","crypto_pwhash_scryptsalsa208sha256_str_verify","crypto_scalarmult","crypto_scalarmult_base",
-"crypto_secretbox_detached","crypto_secretbox_easy","crypto_secretbox_open_detached","crypto_secretbox_open_easy","crypto_shorthash",
-"crypto_sign","crypto_sign_detached","crypto_sign_ed25519_pk_to_curve25519","crypto_sign_ed25519_sk_to_curve25519","crypto_sign_keypair",
-"crypto_sign_open","crypto_sign_seed_keypair","crypto_sign_verify_detached"
-]
 
 var input = [
   ['sign_seed_keypair', _alice],
