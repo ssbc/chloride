@@ -14,7 +14,9 @@
     "chloridedown": "^1.0.22"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "build": "node generate.js > data.json"
+
   },
   "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
   "license": "MIT"
