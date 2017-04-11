@@ -1,10 +1,32 @@
-
 var assert = require('assert')
 var JSONB = require('json-buffer')
 var tests = JSONB.parse(require('./data.json'))
+var expectedApi = [
+  'crypto_auth',
+  'crypto_auth_verify',
+  'crypto_box_easy',
+  'crypto_box_keypair',
+  'crypto_box_open_easy',
+  'crypto_hash',
+  'crypto_hash_sha256',
+  'crypto_scalarmult',
+  'crypto_secretbox_easy',
+  'crypto_secretbox_open_easy',
+  'crypto_sign',
+  'crypto_sign_detached',
+  'crypto_sign_ed25519_pk_to_curve25519',
+  'crypto_sign_ed25519_sk_to_curve25519',
+  'crypto_sign_keypair',
+  'crypto_sign_open',
+  'crypto_sign_seed_keypair',
+  'crypto_sign_verify_detached',
+  'randombytes'
+]
 
 module.exports = function (sodium) {
-  //test random bytes
+  expectedApi.forEach(function (method) {
+    assert.equal(typeof sodium[method], 'function')
+  })
 
   assert.throws(function () {
     sodium.randombytes(32)
