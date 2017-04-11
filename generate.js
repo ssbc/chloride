@@ -1,7 +1,7 @@
 
 var sodium = require('chloridedown/build/Release/sodium')
 var crypto = require('crypto')
-var seed = crypto.randomBytes(32)
+var seed = sodium.crypto_hash_sha256(new Buffer('deterministic tests are good'))
 var JSONB = require('json-buffer')
 
 var isArray = Array.isArray

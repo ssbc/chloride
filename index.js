@@ -1,27 +1,7 @@
 var assert = require('assert')
 var JSONB = require('json-buffer')
 var tests = JSONB.parse(require('./data.json'))
-var expectedApi = [
-  'crypto_auth',
-  'crypto_auth_verify',
-  'crypto_box_easy',
-  'crypto_box_keypair',
-  'crypto_box_open_easy',
-  'crypto_hash',
-  'crypto_hash_sha256',
-  'crypto_scalarmult',
-  'crypto_secretbox_easy',
-  'crypto_secretbox_open_easy',
-  'crypto_sign',
-  'crypto_sign_detached',
-  'crypto_sign_ed25519_pk_to_curve25519',
-  'crypto_sign_ed25519_sk_to_curve25519',
-  'crypto_sign_keypair',
-  'crypto_sign_open',
-  'crypto_sign_seed_keypair',
-  'crypto_sign_verify_detached',
-  'randombytes'
-]
+var expectedApi = require('./api.json')
 
 module.exports = function (sodium) {
   expectedApi.forEach(function (method) {
@@ -81,6 +61,7 @@ module.exports = function (sodium) {
   })
   return {total: total, fail: fails, pass: total - fails}
 }
+
 
 
 
