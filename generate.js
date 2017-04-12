@@ -1,13 +1,12 @@
 
 var sodium = require('chloridedown/build/Release/sodium')
-var assert = require('assert')
 var JSONB = require('json-buffer')
 
 var isArray = Array.isArray
 
 function apply (ary) {
   var name = ary[0]
-  var fn = name === 'assert' ? assert.deepEqual : sodium['crypto_'+name]
+  var fn = sodium['crypto_'+name]
   if(!fn) throw new Error('method: crypto_'+name+' does not exist')
 
   try {
