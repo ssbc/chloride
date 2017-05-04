@@ -15,17 +15,16 @@ if(process.env.CHLORIDE_JS) {
       var msg = cl.crypto_hash(new Buffer('test signature'))
       var sig = cl.crypto_sign_detached(msg, keys.secretKey)
 
-      if(cl.crypto_sign_verify_detached(sig, msg, keys.publicKey))
-        return
+      if(!cl.crypto_sign_verify_detached(sig, msg, keys.publicKey)) {
+        console.error('detached signatures broken in electron, using workaround')
 
-      console.error('detached signatures broken in electron, using workaround')
-
-      var verify = module.exports.crypto_sign_verify_detached
-      module.exports.crypto_sign_verify_detached = function (sig, msg, pk) {
-        //return verify(copy(sig), copy(msg), copy(pk))
-        return module.exports.crypto_sign_open(Buffer.concat([sig, msg]), pk)
-        //console.log(sig, msg, pk)
-        //return verify(new Buffer(sig), new Buffer(msg), new Buffer(pk))
+        var verify = module.exports.crypto_sign_verify_detached
+        module.exports.crypto_sign_verify_detached = function (sig, msg, pk) {
+          //return verify(copy(sig), copy(msg), copy(pk))
+          return module.exports.crypto_sign_open(Buffer.concat([sig, msg]), pk)
+          //console.log(sig, msg, pk)
+          //return verify(new Buffer(sig), new Buffer(msg), new Buffer(pk))
+        }
       }
     }
   } catch (err) {
