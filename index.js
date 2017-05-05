@@ -20,10 +20,7 @@ if(process.env.CHLORIDE_JS) {
 
         var verify = module.exports.crypto_sign_verify_detached
         module.exports.crypto_sign_verify_detached = function (sig, msg, pk) {
-          //return verify(copy(sig), copy(msg), copy(pk))
           return module.exports.crypto_sign_open(Buffer.concat([sig, msg]), pk)
-          //console.log(sig, msg, pk)
-          //return verify(new Buffer(sig), new Buffer(msg), new Buffer(pk))
         }
       }
     }
@@ -33,3 +30,5 @@ if(process.env.CHLORIDE_JS) {
     module.exports = require('./browser-small')
   }
 }
+
+
