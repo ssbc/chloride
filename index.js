@@ -68,7 +68,7 @@ module.exports = function (na) {
 
   exports.crypto_box_open_easy = function (ctxt, nonce, pk, sk) {
     var ptxt = Z(ctxt.length - na.crypto_box_MACBYTES)
-    if(na.crypto_box_open_easy(ctxt, ptxt, nonce, pk, sk))
+    if(na.crypto_box_open_easy(ptxt, ctxt, nonce, pk, sk))
       return ptxt
   }
 
@@ -82,10 +82,7 @@ module.exports = function (na) {
 
   exports.crypto_secretbox_open_easy = function (ctxt, nonce, key) {
     var ptxt = Z(ctxt.length - na.crypto_secretbox_MACBYTES)
-    console.log('SECRETBOX OPEN EASY', ptxt, ctxt)
-    var v = na.crypto_secretbox_open_easy(ctxt, ptxt, nonce, key)
-    console.log('SECRETBOX OPEN EASY', v, ctxt)
-    if(na.crypto_secretbox_open_easy(ctxt, ptxt, nonce, key))
+    if(na.crypto_secretbox_open_easy(ptxt, ctxt, nonce, key))
       return ptxt
   }
 
@@ -135,5 +132,9 @@ module.exports = function (na) {
 
   return exports
 }
+
+
+
+
 
 
