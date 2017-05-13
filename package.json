@@ -1,0 +1,20 @@
+{
+  "name": "sodium-chloride",
+  "description": "",
+  "version": "1.0.0",
+  "homepage": "https://github.com/dominictarr/sodium-chloride",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/sodium-chloride.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chloride-test": "^1.2.2",
+    "sodium-native": "^1.9.0"
+  },
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
