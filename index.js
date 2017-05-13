@@ -121,8 +121,18 @@ module.exports = function (na) {
 
   // *** Conversions ***
 
-  exports.crypto_sign_ed25519_pk_to_curve25519 = function () {}
-  exports.crypto_sign_ed25519_sk_to_curve25519 = function () {}
+  exports.crypto_sign_ed25519_pk_to_curve25519 = function (ed_pk) {
+    var curve_pk = Z(na.crypto_box_PUBLICKEYBYTES)
+    na.crypto_sign_ed25519_pk_to_curve25519(curve_pk, ed_pk)
+    return curve_pk
+  }
+
+  exports.crypto_sign_ed25519_sk_to_curve25519 = function (ed_sk) {
+    var curve_sk = Z(na.crypto_box_SECRETKEYBYTES)
+    na.crypto_sign_ed25519_sk_to_curve25519(curve_sk, ed_sk)
+    return curve_sk
+
+  }
 
   // *** Randomness **
 
