@@ -7,10 +7,11 @@
   "dependencies": {
     "is-electron": "^2.0.0",
     "sodium-browserify": "^1.0.3",
-    "sodium-browserify-tweetnacl": "^0.2.0"
+    "sodium-browserify-tweetnacl": "^0.2.0",
+    "sodium-chloride": "^1.0.1"
   },
   "optionalDependencies": {
-    "sodium-prebuilt": "1.0.22"
+    "sodium-native": "^1.10.0"
   },
   "repository": {
     "type": "git",
