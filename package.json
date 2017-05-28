@@ -7,10 +7,9 @@
     "type": "git",
     "url": "git://github.com/dominictarr/sodium-chloride.git"
   },
-  "dependencies": {},
   "devDependencies": {
     "chloride-test": "^1.2.2",
-    "sodium-native": "^1.9.0"
+    "sodium-native": "^1.10.0"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
