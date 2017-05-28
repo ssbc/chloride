@@ -41,7 +41,7 @@ module.exports = function (na) {
   }
 
   exports.crypto_sign_verify_detached = function (sig, msg, pk) {
-    return na.crypto_sign_verify_detached(sig, msg, pk) !== 0
+    return na.crypto_sign_verify_detached(sig, msg, pk)
   }
   // *** Box ***
 
@@ -95,7 +95,7 @@ module.exports = function (na) {
   }
 
   exports.crypto_auth_verify = function (output, input, key) {
-    return na.crypto_auth_verify(output, input, key) === 0
+    return na.crypto_auth_verify(output, input, key) ? 0 : 1
   }
   // *** Hash (sha512)
 
