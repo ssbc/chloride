@@ -1,7 +1,7 @@
 var isElectron = require('is-electron')
 
 if(process.env.CHLORIDE_JS) {
-  module.exports = require('./browser-small')
+  module.exports = require('./browser')
 } else {
   try {
     var cl = module.exports = require('./bindings')
