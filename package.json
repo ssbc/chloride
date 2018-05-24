@@ -11,7 +11,7 @@
     "sodium-chloride": "^1.1.0"
   },
   "optionalDependencies": {
-    "sodium-native": "^2.0.0"
+    "sodium-native": "^2.1.6"
   },
   "repository": {
     "type": "git",
