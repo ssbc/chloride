@@ -1,7 +1,7 @@
 {
   "name": "sodium-chloride",
   "description": "polyfil from chloride to sodium-friends",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/dominictarr/sodium-chloride",
   "repository": {
     "type": "git",
