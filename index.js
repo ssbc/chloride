@@ -123,7 +123,14 @@ module.exports = function (na) {
 
   exports.crypto_sign_ed25519_pk_to_curve25519 = function (ed_pk) {
     var curve_pk = Z(na.crypto_box_PUBLICKEYBYTES)
-    na.crypto_sign_ed25519_pk_to_curve25519(curve_pk, ed_pk)
+    try {
+      //in chloridedown, it just returns something no matter what
+      //but in sodium-native it throws if you try to convert
+      //a random buffer, that isn't a pk.
+      na.crypto_sign_ed25519_pk_to_curve25519(curve_pk, ed_pk)
+    } (err) {
+      return null
+    }
     return curve_pk
   }
 
@@ -142,4 +149,6 @@ module.exports = function (na) {
 
   return exports
 }
+
+
 
