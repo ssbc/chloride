@@ -128,7 +128,7 @@ module.exports = function (na) {
       //but in sodium-native it throws if you try to convert
       //a random buffer, that isn't a pk.
       na.crypto_sign_ed25519_pk_to_curve25519(curve_pk, ed_pk)
-    } (err) {
+    } catch (err) {
       return null
     }
     return curve_pk
