@@ -8,10 +8,11 @@
     "url": "git://github.com/dominictarr/chloride-test.git"
   },
   "dependencies": {
-    "json-buffer": "^2.0.11"
+    "json-buffer": "^2.0.11",
   },
   "devDependencies": {
-    "chloridedown": "^1.0.22"
+    "sodium-native": "^2.3.0",
+    "sodium-chloride": "^1.1.2"
   },
   "scripts": {
     "test": "node test.js",
@@ -20,3 +21,5 @@
   "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
   "license": "MIT"
 }
+
+
