@@ -1,5 +1,5 @@
 
-var sodium = require('chloridedown/build/Release/sodium')
+var sodium = require('sodium-chloride')(require('sodium-native'))
 var JSONB = require('json-buffer')
 
 var isArray = Array.isArray
@@ -61,6 +61,19 @@ var msgs = [
 // - Witfield Diffie, New Directions in Cryptography
 ].map(function (e) { return new Buffer(e) })
 
+// taken from: https://github.com/jedisct1/libsodium/blob/ab4ab23d5744a8e060864a7cec1a7f9b059f9ddd/src/libsodium/crypto_scalarmult/curve25519/ref10/x25519_ref10.c#L16-L51
+var low_order = [
+  '00000000000000000000000000000000000000000000000000000000000000000',
+  '0100000000000000000000000000000000000000000000000000000000000000', //1 in little endian
+  'e0eb7a7c3b41b8ae1656e3faf19fc46ada098deb9c32b1fd866205165f49b800',
+  '5f9c95bca3508c24b1d0b1559c83ef5b04445cc4581c8e86d8224eddd09f1157',
+  'ecffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f',
+  'edffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f',
+  'eeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f'
+].map(function (e) {
+  return Buffer.from(e, 'hex')
+})
+
 var input = [
   ['sign_seed_keypair', _alice],
   ['sign_seed_keypair', _bob],
@@ -92,6 +105,7 @@ var input = [
 
   ['sign_ed25519_pk_to_curve25519', alice.publicKey],
   ['sign_ed25519_sk_to_curve25519', bob.secretKey],
+  ['sign_ed25519_pk_to_curve25519',  key], //should return null if input is not a pk
 
   ['scalarmult',
     alice_curve.publicKey,
@@ -149,20 +163,20 @@ var input = [
 ]
 
 var output = input.map(function (e) {
-  return ['deepEqual', e, apply(e)]
+  var result
+  return ['deepEquals', e, apply(e)]
 })
 
+low_order.forEach(function (e, i) {
+  try {
+    sodium.crypto_scalarmult(alice_curve.secretKey, e)
+  } catch (err) {
+    console.error(err)
+    return output.push(['throws', ['scalarmult', alice_curve.secretKey, e]])
+  }
+  throw new Error('expected scalarmult to throw, ')
+})
 
-
-console.error(input)
+//console.error(input)
 console.log(JSON.stringify(JSONB.stringify(output, null, 2)))
-
-
-
-
-
-
-
-
-
 
