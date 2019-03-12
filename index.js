@@ -67,7 +67,7 @@ module.exports = function (sodium) {
         return console.error('expected throw:', err)
       }
       fails ++
-      console.error('FAILED', op_name)
+      return console.error('FAILED', op_name)
     }
     else
       throw new Error('unknown operation name:'+op_name)
@@ -76,5 +76,6 @@ module.exports = function (sodium) {
   })
   return {total: total, fail: fails, pass: total - fails}
 }
+
 
 
