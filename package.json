@@ -8,7 +8,7 @@
     "url": "git://github.com/dominictarr/chloride-test.git"
   },
   "dependencies": {
-    "json-buffer": "^2.0.11",
+    "json-buffer": "^2.0.11"
   },
   "devDependencies": {
     "sodium-native": "^2.3.0",
