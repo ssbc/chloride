@@ -5,10 +5,10 @@
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
   "dependencies": {
-    "is-electron": "^2.0.0",
-    "sodium-browserify": "^1.2.4",
-    "sodium-browserify-tweetnacl": "^0.2.2",
-    "sodium-chloride": "^1.1.0"
+    "is-electron": "^2.2.0",
+    "sodium-browserify": "^1.2.5",
+    "sodium-browserify-tweetnacl": "^0.2.4",
+    "sodium-chloride": "^1.1.2"
   },
   "optionalDependencies": {
     "sodium-native": "^2.1.6"
@@ -34,7 +34,7 @@
     }
   ],
   "devDependencies": {
-    "chloride-test": "^1.1.1"
+    "chloride-test": "^1.2.4"
   },
   "scripts": {
     "test": "node test.js"
