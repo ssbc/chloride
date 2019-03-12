@@ -34,7 +34,7 @@ module.exports = function (sodium) {
 
   function apply (ary) {
     var name = ary[0]
-    var fn = name === 'deepEqual' ? assert.deepEqual : sodium['crypto_'+name]
+    var fn = sodium['crypto_'+name]
     if(!fn) throw new Error('method: crypto_'+name+' does not exist')
 
     console.log(ary.slice(1))
@@ -48,20 +48,33 @@ module.exports = function (sodium) {
 
   var fails = 0, total = 0
   tests.forEach(function (op) {
-    var op_name = op[1][0]
-    total ++
-    try {
-      apply(op)
-    } catch (err) {
+    var op_name = op[0]
+    if(op_name === 'deepEquals') {
+      total ++
+      try {
+        assert.deepEqual(apply(op[1]), op[2])
+      } catch (err) {
+        fails ++
+        console.error('FAILED', op_name)
+        return console.error(err)
+      }
+    }
+    else if (op_name === 'throws') {
+      total ++
+      try {
+        apply(op[1])
+      } catch (err) {
+        return console.error('expected throw:', err)
+      }
       fails ++
       console.error('FAILED', op_name)
-      return console.error(err)
     }
+    else
+      throw new Error('unknown operation name:'+op_name)
+
     console.log('PASSED', op_name)
   })
   return {total: total, fail: fails, pass: total - fails}
 }
-
-
 
 
