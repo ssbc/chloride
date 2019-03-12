@@ -1,6 +1,6 @@
 
 process.exit(
-require('./')(require('chloridedown/build/Release/sodium')).fail
+require('./')(require('sodium-chloride')(require('sodium-native'))).fail
 )
 
 
