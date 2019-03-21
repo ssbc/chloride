@@ -6,7 +6,7 @@
   "description": "node.js sodium bindings + pure js polyfil",
   "dependencies": {
     "is-electron": "^2.2.0",
-    "sodium-browserify": "^1.2.5",
+    "sodium-browserify": "^1.2.6",
     "sodium-browserify-tweetnacl": "^0.2.5",
     "sodium-chloride": "^1.1.2"
   },
