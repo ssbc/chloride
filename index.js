@@ -27,7 +27,7 @@ if(process.env.CHLORIDE_JS) {
   } catch (err) {
     console.error('error loading sodium bindings:', err.message)
     console.error('falling back to javascript version.')
-    module.exports = require('./browser-small')
+    module.exports = require('./browser')
   }
 }
 
