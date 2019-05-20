@@ -4,6 +4,8 @@
   "author": "Dominic Tarr",
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
+  "main": "index.js",
+  "browser": "browser.js",
   "dependencies": {
     "is-electron": "^2.2.0",
     "sodium-browserify": "^1.2.7",
