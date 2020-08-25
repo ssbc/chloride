@@ -1,23 +1,14 @@
-sudo: false
 language: node_js
+
 node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
-  -  4
-  -  5
+  - lts/dubnium
+  - lts/erbium
+  - node
 
-env:
-  - CXX=g++-4.8
+os:
+  - linux
+  - osx
+  - windows
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-
-before_install:
-  - export JOBS=max
-  - export prebuild_compile=true
-
+git:
+  autocrlf: input
