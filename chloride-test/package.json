@@ -1,0 +1,23 @@
+{
+  "name": "chloride-test",
+  "description": "",
+  "version": "1.2.4",
+  "homepage": "https://github.com/dominictarr/chloride-test",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/chloride-test.git"
+  },
+  "dependencies": {
+    "json-buffer": "^2.0.11"
+  },
+  "devDependencies": {
+    "sodium-native": "^2.3.0",
+    "sodium-chloride": "^1.1.2"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "build": "node generate.js > data.json"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
