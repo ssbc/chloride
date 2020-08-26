@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "chloride-test": "^1.2.2",
-    "sodium-native": "^1.10.0"
+    "sodium-native": "^3.0.0"
   },
   "scripts": {
-    "test": "set -e; for t in test/*.js; do node $t; done"
+    "test": "node test"
   },
   "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
   "license": "MIT"
