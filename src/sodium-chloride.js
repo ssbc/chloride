@@ -1,3 +1,10 @@
+// sodium-chloride
+//
+// Polyfill to adapt Sodium-Friends API to Chloride.
+//
+// TODO: `box_open` methods aren't passing yet.
+// TODO: Sodium-Friends needs a PR to add key conversions.
+//
 
 function Z(n) {
   return new Buffer(n)

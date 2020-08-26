@@ -77,5 +77,7 @@ module.exports = function (sodium) {
   return {total: total, fail: fails, pass: total - fails}
 }
 
-
+if (module.parent == null) {
+  module.exports(require('../src'))
+}
 

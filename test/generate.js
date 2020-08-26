@@ -1,5 +1,4 @@
-
-var sodium = require('sodium-chloride')(require('sodium-native'))
+var sodium = require('../src')
 var JSONB = require('json-buffer')
 
 var isArray = Array.isArray
