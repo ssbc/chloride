@@ -9,7 +9,7 @@ if(isElectron()) {
   //signatures do...
 
   var keys = cl.crypto_sign_keypair()
-  var msg = cl.crypto_hash(new Buffer('test signature'))
+  var msg = cl.crypto_hash(Buffer.from('test signature'))
   var sig = cl.crypto_sign_detached(msg, keys.secretKey)
 
   if(!cl.crypto_sign_verify_detached(sig, msg, keys.publicKey)) {

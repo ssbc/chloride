@@ -25,18 +25,18 @@ function toCurve25519(keys) {
   }
 }
 
-var _alice = sodium.crypto_hash_sha256(new Buffer('alice'))
-var _bob = sodium.crypto_hash_sha256(new Buffer('bob'))
+var _alice = sodium.crypto_hash_sha256(Buffer.from('alice'))
+var _bob = sodium.crypto_hash_sha256(Buffer.from('bob'))
 var alice = sodium.crypto_sign_seed_keypair(_alice)
 var bob = sodium.crypto_sign_seed_keypair(_bob)
 
-var key = sodium.crypto_hash_sha256(new Buffer('key'))
-var key2 = sodium.crypto_hash_sha256(new Buffer('NOT_KEY'))
+var key = sodium.crypto_hash_sha256(Buffer.alloc('key'))
+var key2 = sodium.crypto_hash_sha256(Buffer.alloc('NOT_KEY'))
 
 var alice_curve = toCurve25519(alice)
 var bob_curve = toCurve25519(bob)
 
-var nonce = new Buffer(24)
+var nonce = Buffer.alloc(24)
 nonce.fill(0)
 
 var msgs = [
@@ -58,7 +58,7 @@ var msgs = [
 + 'in the design of new types of cryptographic systems, '
 + 'has come primarily from the amateurs.'
 // - Witfield Diffie, New Directions in Cryptography
-].map(function (e) { return new Buffer(e) })
+].map(function (e) { return Buffer.from(e) })
 
 // taken from: https://github.com/jedisct1/libsodium/blob/ab4ab23d5744a8e060864a7cec1a7f9b059f9ddd/src/libsodium/crypto_scalarmult/curve25519/ref10/x25519_ref10.c#L16-L51
 var low_order = [

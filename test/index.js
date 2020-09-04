@@ -12,10 +12,10 @@ module.exports = function (sodium) {
     sodium.randombytes(32)
   })
 
-  var b = new Buffer(32)
+  var b = Buffer.alloc(32)
   assert.equal(sodium.randombytes(b), null)
 
-  var b2 = new Buffer(b)
+  var b2 = Buffer.from(b)
   sodium.randombytes(b2)
   assert.notDeepEqual(b, b2)
 
