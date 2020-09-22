@@ -86,7 +86,11 @@ module.exports = function (na) {
 
   exports.crypto_secretbox_open_easy = function (ctxt, nonce, key) {
     var ptxt = Z(ctxt.length - na.crypto_secretbox_MACBYTES);
-    if (na.crypto_secretbox_open_easy(ptxt, ctxt, nonce, key)) return ptxt;
+    if (na.crypto_secretbox_open_easy(ptxt, ctxt, nonce, key)) {
+      return ptxt;
+    } else {
+      return null;
+    }
   };
 
   // *** Auth (hmac) ***
@@ -118,8 +122,12 @@ module.exports = function (na) {
 
   exports.crypto_scalarmult = function (sk, pk) {
     var secret = Z(na.crypto_scalarmult_BYTES);
-    na.crypto_scalarmult(secret, sk, pk);
-    return secret;
+    try {
+      na.crypto_scalarmult(secret, sk, pk);
+      return secret;
+    } catch (e) {
+      return null;
+    }
   };
 
   // *** Conversions ***
@@ -145,8 +153,9 @@ module.exports = function (na) {
 
   // *** Randomness **
 
-  exports.randombytes = function (length) {
-    return na.randombytes_buf(length);
+  exports.randombytes = function (buf) {
+    na.randombytes_buf(buf);
+    return null;
   };
 
   return exports;

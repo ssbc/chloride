@@ -13,7 +13,8 @@
     "sodium-native": "^3.2.0"
   },
   "devDependencies": {
-    "json-buffer": "^3.0.1"
+    "json-buffer": "^3.0.1",
+    "tape": "^5.0.1"
   },
   "repository": {
     "type": "git",
