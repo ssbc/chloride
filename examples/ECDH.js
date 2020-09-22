@@ -1,5 +1,4 @@
-var sodium = require('../lib/sodium');
-var should = require('should');
+var sodium = require("../lib/sodium");
 
 // Generate Alice's and Bob's key pairs
 var bob = new sodium.Key.ECDH();
@@ -8,8 +7,8 @@ var alice = new sodium.Key.ECDH();
 // Now alice and bob exchange public keys
 // To keep this example simple the network, and public key exchanges are
 // simulated by using the variables alicePublicKey, and bobPublicKey
-alicePublicKey = alice.pk().get();
-bobPublicKey = bob.pk().get();
+const alicePublicKey = alice.pk().get();
+const bobPublicKey = bob.pk().get();
 
 // Once Alice gets Bob's public key she can initialize the
 // Eliptic Curve Diffie-Helman object with her secret key
@@ -30,7 +29,7 @@ var bobSecret = bobDH.secret();
 // Alice and Bob should now have the same secret and the key exchange
 // is complete
 bobSecret.should.eql(aliceSecret);
-console.log('DH Secrets Match!');
+console.log("DH Secrets Match!");
 
 // The Diffie-Helman secret should not be used directly as an encryption key
 // You can take the secret and hash it using your "favorite" hash function or
@@ -39,4 +38,4 @@ var bobSessionKey = bobDH.sessionKey();
 var aliceSessionKey = aliceDH.sessionKey();
 
 aliceSessionKey.should.eql(bobSessionKey);
-console.log('Sessions Keys Match!');
+console.log("Sessions Keys Match!");

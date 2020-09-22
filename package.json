@@ -4,10 +4,10 @@
   "author": "Dominic Tarr",
   "license": "MIT",
   "description": "node.js sodium bindings + pure js polyfil",
-  "main": "index.js",
-  "browser": "browser.js",
+  "main": "src/index.js",
   "dependencies": {
-    "sodium-javascript": "^0.7.1"
+    "sodium-javascript": "^0.7.1",
+    "sodium-native": "^3.2.0"
   },
   "optionalDependencies": {
     "sodium-native": "^3.2.0"
