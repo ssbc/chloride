@@ -7,15 +7,17 @@
   "main": "index.js",
   "browser": "browser.js",
   "dependencies": {
-    "is-electron": "^2.2.0",
-    "sodium-universal": "^3.0.0"
+    "sodium-javascript": "^0.7.1"
+  },
+  "optionalDependencies": {
+    "sodium-native": "^3.2.0"
   },
   "devDependencies": {
     "json-buffer": "^3.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dominictarr/chloride"
+    "url": "git+https://github.com/dominictarr/chloride.git"
   },
   "keywords": [
     "encryption",
@@ -35,5 +37,13 @@
   ],
   "scripts": {
     "test": "node test"
+  },
+  "bugs": {
+    "url": "https://github.com/dominictarr/chloride/issues"
+  },
+  "homepage": "https://github.com/dominictarr/chloride#readme",
+  "directories": {
+    "example": "examples",
+    "test": "test"
   }
 }
