@@ -10,7 +10,7 @@ const adapt = (na) => {
     const secret = Buffer.alloc(na.crypto_scalarmult_BYTES);
     na.crypto_scalarmult(secret, sk, pk);
 
-    if (emptyScalarMult.compare(secret) === 0) {
+    if (na.sodium_memcmp(emptyScalarMult, secret)) {
       throw new Error('failed to derive shared secret')
     }
     return secret
