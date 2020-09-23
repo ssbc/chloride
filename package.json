@@ -8,9 +8,8 @@
   "browser": "browser.js",
   "dependencies": {
     "is-electron": "^2.2.0",
-    "sodium-browserify": "^1.2.7",
-    "sodium-browserify-tweetnacl": "^0.2.5",
-    "sodium-chloride": "^1.1.2"
+    "sodium-chloride": "^1.1.2",
+    "sodium-javascript": "^0.7.1"
   },
   "optionalDependencies": {
     "sodium-native": "^3.0.0"
